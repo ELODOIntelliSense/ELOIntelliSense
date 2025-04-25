@@ -1,0 +1,16 @@
+{
+    "extends": "@manuth/tsconfig/recommended",
+    "compilerOptions": {
+        "declaration": true,
+        "module": "Node18",
+        "lib": [
+            "ES2024"
+        ],
+        "target": "ES6",
+        "paths": {
+            "@elo-do-intellisense/*": [
+                "./packages/*"
+            ]
+        }
+    }
+}

@@ -1,0 +1,13 @@
+{
+    "folders": [
+        {
+            "name": "Solution Items",
+            "path": "."
+        }
+    ],
+    "extensions": {
+        "recommendations": [
+            "dbaeumer.vscode-eslint"
+        ]
+    }
+}
