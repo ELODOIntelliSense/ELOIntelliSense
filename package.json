@@ -20,7 +20,7 @@
     "lint": "yarn run lint-code",
     "lint-ide": "yarn run lint || exit 0",
     "test": "yarn workspaces foreach --all run test",
-    "bump-version": "node --no-warnings=ExperimentalWarning --loader ts-node/esm/transpile-only ./scripts/bumpVersion.mts"
+    "bump-version": "vite-node ./scripts/bumpVersion.mts"
   },
   "devDependencies": {
     "@manuth/eslint-plugin-typescript": "^5.0.3",
