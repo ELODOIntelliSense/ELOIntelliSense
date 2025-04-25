@@ -3,7 +3,7 @@
     "files": [],
     "references": [
         {
-            "path": "./packages/java-client/tsconfig.build.json"
+            "path": "./tsconfig.app.json"
         }
     ]
 }

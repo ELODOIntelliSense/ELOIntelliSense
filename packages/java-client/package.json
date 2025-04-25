@@ -1,0 +1,36 @@
+{
+    "name": "@elo-do-intellisense/java-client",
+    "version": "0.0.1",
+    "type": "module",
+    "description": "Provides Types for Programming ELO Java Client Scripts.",
+    "maintainers": [
+        "Jiro Kaya <>",
+        "Manuel Thalmann <m@nuth.ch>"
+    ],
+    "exports": {
+        ".": {
+            "default": "./lib/index.d.cts"
+        },
+        "./package.json": "./package.json"
+    },
+    "types": "./lib/index.d.cts",
+    "homepage": "https://github.com/ELODOIntelliSense/ELOIntelliSense#readme",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ELODOIntelliSense/ELOIntelliSense.git",
+        "directory": "packages/java-client"
+    },
+    "bugs": {
+        "url": "https://github.com/ELODOIntelliSense/ELOIntelliSense/issues"
+    },
+    "publishConfig": {
+        "access": "public"
+    },
+    "scripts": {
+        "prepack": "yarn --prefix ../.. build",
+        "test": "tsd --files ./type-tests"
+    },
+    "dependencies": {
+        "tsd": "^0.32.0"
+    }
+}

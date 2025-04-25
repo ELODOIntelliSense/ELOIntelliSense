@@ -12,17 +12,16 @@
   "scripts": {
     "prepare": "ts-patch install",
     "build": "tsc -b tsconfig.build.json",
-    "rebuild": "yarn run clean && yarn run build",
-    "watch": "yarn run build -- --watch",
-    "clean": "yarn run build -- --clean && rimraf ./lib",
+    "rebuild": "yarn clean && yarn build",
+    "watch": "yarn run build --watch",
+    "clean": "yarn run build --clean && rimraf ./lib",
     "lint-local": "eslint --max-warnings 0 ./scripts .eslintrc.cjs",
-    "lint-code": "yarn run lint-local -- ./packages/*/src ./packages/*/.eslintrc.cjs",
+    "lint-code": "yarn run lint-local ./packages/*/src ./packages/*/.eslintrc.cjs",
     "lint": "yarn run lint-code",
     "lint-ide": "yarn run lint || exit 0",
-    "test": "yarn workspaces run test",
+    "test": "yarn workspaces foreach --all run test",
     "bump-version": "node --no-warnings=ExperimentalWarning --loader ts-node/esm/transpile-only ./scripts/bumpVersion.mts"
   },
-  "dependencies": {},
   "devDependencies": {
     "@manuth/eslint-plugin-typescript": "^5.0.3",
     "@manuth/package-json-editor": "^3.2.1",
@@ -36,7 +35,9 @@
     "globals": "^16.0.0",
     "globby": "^14.1.0",
     "npm-which": "^3.0.1",
+    "rimraf": "^6.0.1",
     "ts-patch": "^3.3.0",
     "typescript": "^5.8.3"
-  }
+  },
+  "packageManager": "yarn@4.9.1"
 }
