@@ -27,7 +27,7 @@
         "access": "public"
     },
     "scripts": {
-        "prepack": "yarn --prefix ../.. build",
+        "prepack": "yarn run -T build",
         "test": "tsd --files ./type-tests"
     },
     "dependencies": {
