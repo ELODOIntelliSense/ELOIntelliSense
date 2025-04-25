@@ -1,3 +1,6 @@
+# Build results
+[Ll]ib/
+
 # Logs
 logs
 *.log
@@ -69,6 +72,16 @@ web_modules/
 # Output of 'npm pack'
 *.tgz
 
+# Redundant files
+packages/*/templates/.github/
+packages/*/.npmignore
+packages/*/.drone.yml
+packages/*/.woodpecker.yml
+packages/*/.woodpecker/
+packages/*/templates/CHANGELOG.md.ejs
+packages/*/LICENSE
+packages/generator-ts-project/templates/.gitignore.ejs
+
 # Yarn Integrity file
 .yarn-integrity
 
@@ -127,6 +140,12 @@ dist
 
 # Stores VSCode versions used for testing VSCode extensions
 .vscode-test
+
+# Temporary release-assets
+.tagName.txt
+.tagHeading.txt
+.releaseTitle.md
+.releaseNotes.md
 
 # yarn v2
 .yarn/cache
