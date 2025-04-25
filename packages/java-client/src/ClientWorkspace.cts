@@ -1,7 +1,8 @@
 /**
  * Represents a workspace.
  */
-export interface ClientWorkspace {
+export interface ClientWorkspace
+{
     /**
      * Shows an information box to the user.
      *
