@@ -30,7 +30,9 @@ jobs:
             ${{ runner.os }}-node-modules-
 
       - name: Install dependencies
-        run: yarn install # Use yarn to install dependencies
+        run: |
+          yarn set version stable
+          yarn install
 
       - name: Bump version
         run: |
