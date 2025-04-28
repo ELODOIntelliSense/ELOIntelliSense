@@ -31,7 +31,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          yarn set version stable
+          corepack enable
           yarn install
 
       - name: Bump version
