@@ -4,13 +4,19 @@ TypeScript type declarations for easening writing scripts for ELO Digital Office
 
 ## Table of Contents
 
-- [Description](#description)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [Workflow](#workflow)
-- [License](#license)
-- [Contact](#contact)
+- [ELOIntelliSense](#elointellisense)
+  - [Table of Contents](#table-of-contents)
+  - [Description](#description)
+  - [Installation](#installation)
+    - [Prerequisites](#prerequisites)
+    - [Steps to Install](#steps-to-install)
+  - [Usage](#usage)
+    - [Features](#features)
+    - [Example](#example)
+  - [Contributing](#contributing)
+  - [Workflow](#workflow)
+  - [License](#license)
+  - [Contact](#contact)
 
 ## Description
 
@@ -70,18 +76,18 @@ Here’s how we manage the development and release cycle for the ELO IntelliSens
 
 1. **Development**:
 
-   - We use **Git Flow** as our branching model. New features and fixes are first developed in the `develop` branch.
-   - All new code starts in a feature branch (`feature/*`), created off of `develop`.
+   - We use **Git Flow** as our branching model. New features and fixes are first developed in the `dev` branch.
+   - All new code starts in a feature branch (`feature/*`), created off of `dev`.
 
 2. **Creating a Release**:
 
-   - When the `develop` branch is stable and ready for release, we create a **release branch** (`release/*`).
-   - The release branch will undergo final testing and adjustments. Once it is stable, the release branch is merged into both `main` (for production) and `develop` (to keep the branches in sync).
+   - When the `dev` branch is stable and ready for release, we create a **release branch** (`release/*`).
+   - The release branch will undergo final testing and adjustments. Once it is stable, the release branch is merged into both `main` (for production) and `dev` (to keep the branches in sync).
 
 3. **Hotfixes**:
 
    - If there’s a critical bug found in production, we create a **hotfix branch** (`hotfix/*`) directly from `main`.
-   - After fixing the issue, the hotfix branch is merged back into both `main` (to apply the fix in production) and `develop` (to ensure the fix is included in the next release).
+   - After fixing the issue, the hotfix branch is merged back into both `main` (to apply the fix in production) and `dev` (to ensure the fix is included in the next release).
 
 4. **Publishing to NPM**:
 
