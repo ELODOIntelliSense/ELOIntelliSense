@@ -1,0 +1,57 @@
+# .github/workflows/prepare-release.yml
+name: Prepare Release Package
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Release version (e.g. 1.2.0)"
+        required: true
+
+jobs:
+  prepare-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout develop branch
+        uses: actions/checkout@v3
+        with:
+          ref: develop
+          fetch-depth: 0
+
+      - name: Cache Node.js modules
+        uses: actions/cache@v4
+        with:
+          path: "**/node_modules"
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+
+      - name: Create release branch
+        run: |
+          git checkout -b release/${{ github.event.inputs.version }}
+
+      - name: Generate changelog (basic)
+        id: changelog
+        run: |
+          LAST_TAG=$(git describe --tags --abbrev=0 || echo "")
+          echo "Last tag: $LAST_TAG"
+          if [ -z "$LAST_TAG" ]; then
+            LOG=$(git log --oneline)
+          else
+            LOG=$(git log $LAST_TAG..HEAD --oneline)
+          fi
+          echo "$LOG" > RELEASE_NOTES.md
+          echo "changelog<<EOF" >> $GITHUB_OUTPUT
+          echo "$LOG" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Commit changelog and push branch
+        run: |
+          git add RELEASE_NOTES.md
+          git commit -m "chore: add release notes for v${{ github.event.inputs.version }}"
+          git push origin release/${{ github.event.inputs.version }}

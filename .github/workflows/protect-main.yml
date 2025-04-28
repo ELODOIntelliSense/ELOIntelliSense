@@ -1,0 +1,19 @@
+# .github/workflows/protect-main.yml
+name: Block Invalid Main Merges
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  validate-branch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check source branch
+        run: |
+          echo "Source branch is ${{ github.head_ref }}"
+          if [[ "${{ github.head_ref }}" != release/* && "${{ github.head_ref }}" != hotfix/* ]]; then
+            echo "❌ Only release/* or hotfix/* branches can be merged into main."
+            exit 1
+          fi
