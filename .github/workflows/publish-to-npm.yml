@@ -36,9 +36,9 @@ jobs:
         run: yarn build
 
       - name: Validate NPM publish (dry run)
-        run: yarn publish --non-interactive # Publish using Yarn
+        run: npm publish --dry-run
 
       - name: Publish
-        run: npm publish
+        run: yarn npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
