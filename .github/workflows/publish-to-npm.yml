@@ -39,6 +39,6 @@ jobs:
         run: npm publish --dry-run --workspaces
 
       - name: Publish
-        run: yarn workspaces foreach -A npm publish
+        run: yarn workspaces foreach -A --no-private npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
